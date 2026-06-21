@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briket Berkat - Proposal Bisnis</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --accent-gold: #fbbf24;
+            --accent-hover: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 5% 50px;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .center-heading {
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        #beranda {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1542838686-37ed7a9b0c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+
+        #beranda h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #beranda p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            background-color: var(--accent-gold);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        /* Tables for Financials */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background-color: var(--bg-card);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+
+        th {
+            background-color: #0f172a;
+            color: var(--accent-gold);
+        }
+
+        tr:hover {
+            background-color: #334155;
+        }
+
+        .highlight-row {
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #020617;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="logo">BRIKET BERKAT</div>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#keuangan">Keuangan</a></li>
+        </ul>
+    </nav>
+
+    <!-- Beranda -->
+    <section id="beranda">
+        <h1>Briket Berkat</h1>
+        <p>Premium Arang Batok Kelapa. Tahan Lama (6+ Jam), Panas Stabil & Tinggi, Minim Asap & Bau, 100% Ramah Lingkungan[cite: 1].</p>
+        <a href="#tentang" class="btn">Pelajari Lebih Lanjut</a>
+    </section>
+
+    <!-- Tentang Usaha -->
+    <section id="tentang">
+        <div class="center-heading">
+            <h2>Gambaran Umum Usaha</h2>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Latar Belakang</h3>
+                <p>Persoalan energi dan pengelolaan limbah biomassa merupakan dua tantangan yang saling berkaitan dan kerap dihadapi oleh masyarakat, khususnya di wilayah pesisir seperti Demak, Jawa Tengah[cite: 1]. Dengan hadirnya briket berkat diharapkan dapat mengelola limbah biomassa secara produktif hingga dapat menjadi produk yang bernilai tinggi di banding arang konvensional umumnya[cite: 1].</p>
+            </div>
+            <div class="card">
+                <h3>Visi & Misi</h3>
+                <p><strong>Visi:</strong> Menjadi produsen briket arang tempurung kelapa terpercaya yang berkontribusi pada pengelolaan lingkungan dan pemberdayaan ekonomi lokal di Jawa Tengah[cite: 1].</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Memanfaatkan limbah tempurung kelapa secara optimal[cite: 1].</li>
+                    <li>Menghasilkan briket arang berkualitas ekspor[cite: 1].</li>
+                    <li>Membangun kemitraan dengan petani kelapa lokal[cite: 1].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk -->
+    <section id="produk">
+        <div class="center-heading">
+            <h2>Spesifikasi & Keunggulan Produk</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Standar Ekspor</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Kadar Air: Max. 4%[cite: 1]</li>
+                    <li>Kadar Abu: Max. 2,5 %[cite: 1]</li>
+                    <li>Nilai Kalor: 7.200 kkal/kg[cite: 1]</li>
+                    <li>Durasi Bakar: 2-3 jam[cite: 1]</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Keunggulan Utama</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Nilai kalor tinggi, mencapal 7.000-7.500 kkal/kg[cite: 1].</li>
+                    <li>Rendah asap dan tidak berbau[cite: 1].</li>
+                    <li>Ramah lingkungan karena memanfaatkan limbah biomassa[cite: 1].</li>
+                    <li>Kustomisasi bentuk (kotak, silinder, hexagonal)[cite: 1].</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Proses Produksi</h3>
+                <p>Menggunakan 6 tahap ketat: Bahan Baku → Karbonisasi → Giling → Campur → Cetak → Kemas[cite: 1]. Retort kiln digunakan pada suhu 300-500°C selama 4-6 jam untuk menghasilkan karbon berkualitas tinggi[cite: 1].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keuangan (Laba Rugi Skala Kecil) -->
+    <section id="keuangan">
+        <div class="center-heading">
+            <h2>Laporan Keuangan (Skala Kecil)</h2>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Rincian Biaya Pembuatan (30 Kg)</h3>
+                <table>
+                    <tr>
+                        <th>Komponen</th>
+                        <th>Harga</th>
+                    </tr>
+                    <tr>
+                        <td>Tempurung Kelapa (60 Kg)[cite: 1]</td>
+                        <td>Rp 60.000[cite: 1]</td>
+                    </tr>
+                    <tr>
+                        <td>Tepung Terigu (5 Kg)[cite: 1]</td>
+                        <td>Rp 75.000[cite: 1]</td>
+                    </tr>
+                    <tr>
+                        <td>Kemasan (3 satuan)[cite: 1]</td>
+                        <td>Rp 30.000[cite: 1]</td>
+                    </tr>
+                    <tr>
+                        <td>Biaya Overhead[cite: 1]</td>
+                        <td>Rp 35.000[cite: 1]</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Total Biaya (Untuk 30 Kg)[cite: 1]</td>
+                        <td>Rp 200.000[cite: 1]</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Harga Pokok Penjualan (HPP) / Kg[cite: 1]</td>
+                        <td>Rp 6.666[cite: 1]</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Laporan Laba/Rugi Realisasi</h3>
+                <p style="margin-bottom: 10px; color: var(--text-muted);"><em>Didapat dari total penjualan offline, WhatsApp, dan Instagram sebanyak 28 Kg x Rp 13.000[cite: 1].</em></p>
+                <table>
+                    <tr>
+                        <th>Uraian</th>
+                        <th>Nominal</th>
+                    </tr>
+                    <tr>
+                        <td>Pendapatan Usaha[cite: 1]</td>
+                        <td>Rp 364.000[cite: 1]</td>
+                    </tr>
+                    <tr>
+                        <td>Beban Usaha[cite: 1]</td>
+                        <td>(Rp 200.000)[cite: 1]</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>Laba Bersih[cite: 1]</td>
+                        <td>Rp 164.000[cite: 1]</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2 style="border: none; margin-bottom: 10px; font-size: 2rem;">Briket Berkat</h2>
+        <p>Program Studi Ekonomi Syariah - Universitas Islam Negeri Sunan Kudus - 2026[cite: 1]</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">&copy; 2026 Kelompok 2. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Simple Smooth Scroll JS -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
