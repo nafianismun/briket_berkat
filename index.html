@@ -3,34 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Briket Berkat - Proposal Bisnis</title>
+    <title>Briket Berkat - Premium Arang Batok Kelapa</title>
+    <!-- Import FontAwesome untuk Ikon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
         :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #cbd5e1;
-            --accent-gold: #fbbf24;
-            --accent-hover: #f59e0b;
+            --bg-dark: #0a0a0a;
+            --bg-glass: rgba(30, 30, 30, 0.7);
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+        }
+
+        /* Menyembunyikan sitasi dari tampilan web */
+        .hidden-cite {
+            display: none !important;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Navbar */
+        /* Navbar Glassmorphism */
         nav {
-            background-color: rgba(15, 23, 42, 0.95);
-            padding: 1rem 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
@@ -38,156 +50,304 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-gold);
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
             color: var(--text-main);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gold-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         nav a:hover {
-            color: var(--accent-gold);
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 5% 50px;
-            min-height: 100vh;
-        }
-
-        h1, h2, h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid var(--accent-gold);
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        .center-heading {
-            text-align: center;
-            width: 100%;
+            color: var(--gold-primary);
         }
 
         /* Hero Section */
         #beranda {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.9)), url('https://images.unsplash.com/photo-1542838686-37ed7a9b0c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), 
+                        url('https://images.unsplash.com/photo-1542838686-37ed7a9b0c79?q=80&w=1920&auto=format&fit=crop') center/cover;
+            padding: 0 20px;
         }
 
-        #beranda h1 {
-            font-size: 4rem;
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease forwards;
         }
 
-        #beranda p {
+        .hero-subtitle {
             font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1.2s ease forwards;
         }
 
-        .btn {
-            padding: 10px 25px;
-            background-color: var(--accent-gold);
-            color: var(--bg-dark);
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: #000;
+            padding: 12px 35px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1.4s ease forwards;
         }
 
-        .btn:hover {
-            background-color: var(--accent-hover);
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
         }
 
-        /* Grid Layouts */
-        .grid-2 {
+        /* General Sections */
+        section {
+            padding: 120px 8% 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 span {
+            color: var(--gold-primary);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Glassmorphism Cards */
+        .grid-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .glass-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Cards */
-        .card {
-            background-color: var(--bg-card);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 1px solid #334155;
-            transition: transform 0.3s;
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-gold);
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Tables for Financials */
+        .glass-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .glass-card i {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .glass-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+        }
+
+        .glass-card p, .glass-card ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .glass-card ul {
+            list-style-position: inside;
+            margin-top: 10px;
+        }
+
+        /* Modern Table */
+        .table-container {
+            background: var(--bg-glass);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
-            background-color: var(--bg-card);
         }
 
         th, td {
-            padding: 12px 15px;
+            padding: 18px 20px;
             text-align: left;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         th {
-            background-color: #0f172a;
-            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
 
-        tr:hover {
-            background-color: #334155;
+        tr:last-child td {
+            border-bottom: none;
         }
 
-        .highlight-row {
-            font-weight: bold;
-            color: var(--accent-gold);
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .highlight {
+            color: var(--gold-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .float-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
         }
 
         /* Footer */
         footer {
-            background-color: #020617;
+            background: #050505;
+            padding: 3rem 5%;
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--accent-gold);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        footer .logo {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            nav ul { display: none; } /* Mobile menu disembunyikan untuk simplicity */
+            .float-wa { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -195,157 +355,176 @@
 
     <!-- Navigasi -->
     <nav>
-        <div class="logo">BRIKET BERKAT</div>
+        <div class="logo">Briket Berkat</div>
         <ul>
             <li><a href="#beranda">Beranda</a></li>
             <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#produk">Produk</a></li>
-            <li><a href="#keuangan">Keuangan</a></li>
+            <li><a href="#kualitas">Kualitas</a></li>
+            <li><a href="#keuangan">Finansial</a></li>
         </ul>
     </nav>
 
     <!-- Beranda -->
     <section id="beranda">
-        <h1>Briket Berkat</h1>
-        <p>Premium Arang Batok Kelapa. Tahan Lama (6+ Jam), Panas Stabil & Tinggi, Minim Asap & Bau, 100% Ramah Lingkungan[cite: 1].</p>
-        <a href="#tentang" class="btn">Pelajari Lebih Lanjut</a>
+        <h1 class="hero-title">Solusi Energi Berkelanjutan</h1>
+        <p class="hero-subtitle">Premium Arang Batok Kelapa. Tahan Lama hingga 6+ Jam, Panas Stabil, Minim Asap & Bau, serta 100% Ramah Lingkungan.<span class="hidden-cite">[cite: 1]</span></p>
+        <a href="#tentang" class="btn-gold">Eksplorasi Bisnis</a>
     </section>
 
     <!-- Tentang Usaha -->
-    <section id="tentang">
-        <div class="center-heading">
-            <h2>Gambaran Umum Usaha</h2>
+    <section id="tentang" class="reveal">
+        <div class="section-header">
+            <h2>Gambaran Umum <span>Usaha</span></h2>
+            <p>Memanfaatkan potensi limbah biomassa pesisir menjadi komoditas bernilai tinggi.<span class="hidden-cite">[cite: 1]</span></p>
         </div>
-        <div class="grid-2">
-            <div class="card">
+        <div class="grid-container">
+            <div class="glass-card">
+                <i class="fa-solid fa-leaf"></i>
                 <h3>Latar Belakang</h3>
-                <p>Persoalan energi dan pengelolaan limbah biomassa merupakan dua tantangan yang saling berkaitan dan kerap dihadapi oleh masyarakat, khususnya di wilayah pesisir seperti Demak, Jawa Tengah[cite: 1]. Dengan hadirnya briket berkat diharapkan dapat mengelola limbah biomassa secara produktif hingga dapat menjadi produk yang bernilai tinggi di banding arang konvensional umumnya[cite: 1].</p>
+                <p>Persoalan energi dan pengelolaan limbah biomassa saling berkaitan. Briket Berkat hadir di Demak, Jawa Tengah untuk mengelola limbah tempurung kelapa secara produktif menjadi energi alternatif yang memiliki nilai jual ekspor.<span class="hidden-cite">[cite: 1]</span></p>
             </div>
-            <div class="card">
-                <h3>Visi & Misi</h3>
-                <p><strong>Visi:</strong> Menjadi produsen briket arang tempurung kelapa terpercaya yang berkontribusi pada pengelolaan lingkungan dan pemberdayaan ekonomi lokal di Jawa Tengah[cite: 1].</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>Memanfaatkan limbah tempurung kelapa secara optimal[cite: 1].</li>
-                    <li>Menghasilkan briket arang berkualitas ekspor[cite: 1].</li>
-                    <li>Membangun kemitraan dengan petani kelapa lokal[cite: 1].</li>
+            <div class="glass-card">
+                <i class="fa-solid fa-eye"></i>
+                <h3>Visi Misi Utama</h3>
+                <p>Menjadi produsen briket arang terpercaya yang berkontribusi pada pengelolaan lingkungan. Misi kami:<span class="hidden-cite">[cite: 1]</span></p>
+                <ul>
+                    <li>Optimalisasi limbah tempurung kelapa.<span class="hidden-cite">[cite: 1]</span></li>
+                    <li>Produksi arang kualitas ekspor.<span class="hidden-cite">[cite: 1]</span></li>
+                    <li>Pemberdayaan petani kelapa lokal.<span class="hidden-cite">[cite: 1]</span></li>
                 </ul>
             </div>
-        </div>
-    </section>
-
-    <!-- Produk -->
-    <section id="produk">
-        <div class="center-heading">
-            <h2>Spesifikasi & Keunggulan Produk</h2>
-        </div>
-        <div class="grid-3">
-            <div class="card">
-                <h3>Standar Ekspor</h3>
-                <ul style="margin-left: 20px;">
-                    <li>Kadar Air: Max. 4%[cite: 1]</li>
-                    <li>Kadar Abu: Max. 2,5 %[cite: 1]</li>
-                    <li>Nilai Kalor: 7.200 kkal/kg[cite: 1]</li>
-                    <li>Durasi Bakar: 2-3 jam[cite: 1]</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Keunggulan Utama</h3>
-                <ul style="margin-left: 20px;">
-                    <li>Nilai kalor tinggi, mencapal 7.000-7.500 kkal/kg[cite: 1].</li>
-                    <li>Rendah asap dan tidak berbau[cite: 1].</li>
-                    <li>Ramah lingkungan karena memanfaatkan limbah biomassa[cite: 1].</li>
-                    <li>Kustomisasi bentuk (kotak, silinder, hexagonal)[cite: 1].</li>
-                </ul>
-            </div>
-            <div class="card">
+            <div class="glass-card">
+                <i class="fa-solid fa-gears"></i>
                 <h3>Proses Produksi</h3>
-                <p>Menggunakan 6 tahap ketat: Bahan Baku → Karbonisasi → Giling → Campur → Cetak → Kemas[cite: 1]. Retort kiln digunakan pada suhu 300-500°C selama 4-6 jam untuk menghasilkan karbon berkualitas tinggi[cite: 1].</p>
+                <p>Menerapkan standar ketat melalui 6 tahapan: Pemilihan Bahan Baku <i class="fa-solid fa-arrow-right"></i> Karbonisasi <i class="fa-solid fa-arrow-right"></i> Penggilingan <i class="fa-solid fa-arrow-right"></i> Pencampuran <i class="fa-solid fa-arrow-right"></i> Pencetakan <i class="fa-solid fa-arrow-right"></i> Pengemasan.<span class="hidden-cite">[cite: 1]</span></p>
             </div>
         </div>
     </section>
 
-    <!-- Keuangan (Laba Rugi Skala Kecil) -->
-    <section id="keuangan">
-        <div class="center-heading">
-            <h2>Laporan Keuangan (Skala Kecil)</h2>
+    <!-- Kualitas & Spesifikasi -->
+    <section id="kualitas" class="reveal">
+        <div class="section-header">
+            <h2>Standar Kualitas <span>Ekspor</span></h2>
+            <p>Diformulasikan khusus untuk memenuhi standar importir Eropa dan Timur Tengah.<span class="hidden-cite">[cite: 1]</span></p>
         </div>
-        <div class="grid-2">
-            <div class="card">
-                <h3>Rincian Biaya Pembuatan (30 Kg)</h3>
-                <table>
-                    <tr>
-                        <th>Komponen</th>
-                        <th>Harga</th>
-                    </tr>
-                    <tr>
-                        <td>Tempurung Kelapa (60 Kg)[cite: 1]</td>
-                        <td>Rp 60.000[cite: 1]</td>
-                    </tr>
-                    <tr>
-                        <td>Tepung Terigu (5 Kg)[cite: 1]</td>
-                        <td>Rp 75.000[cite: 1]</td>
-                    </tr>
-                    <tr>
-                        <td>Kemasan (3 satuan)[cite: 1]</td>
-                        <td>Rp 30.000[cite: 1]</td>
-                    </tr>
-                    <tr>
-                        <td>Biaya Overhead[cite: 1]</td>
-                        <td>Rp 35.000[cite: 1]</td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td>Total Biaya (Untuk 30 Kg)[cite: 1]</td>
-                        <td>Rp 200.000[cite: 1]</td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td>Harga Pokok Penjualan (HPP) / Kg[cite: 1]</td>
-                        <td>Rp 6.666[cite: 1]</td>
-                    </tr>
-                </table>
+        <div class="grid-container">
+            <div class="glass-card" style="grid-column: span 1;">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <h3>Spesifikasi Teknis</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="font-size: 1rem; margin-right: 10px;"></i><strong>Kadar Air:</strong> Maksimal 4%<span class="hidden-cite">[cite: 1]</span></li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="font-size: 1rem; margin-right: 10px;"></i><strong>Kadar Abu:</strong> Maksimal 2,5%<span class="hidden-cite">[cite: 1]</span></li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="font-size: 1rem; margin-right: 10px;"></i><strong>Nilai Kalor:</strong> 7.200 kkal/kg<span class="hidden-cite">[cite: 1]</span></li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="font-size: 1rem; margin-right: 10px;"></i><strong>Durasi Bakar:</strong> 2 - 3 Jam<span class="hidden-cite">[cite: 1]</span></li>
+                </ul>
             </div>
-
-            <div class="card">
-                <h3>Laporan Laba/Rugi Realisasi</h3>
-                <p style="margin-bottom: 10px; color: var(--text-muted);"><em>Didapat dari total penjualan offline, WhatsApp, dan Instagram sebanyak 28 Kg x Rp 13.000[cite: 1].</em></p>
-                <table>
-                    <tr>
-                        <th>Uraian</th>
-                        <th>Nominal</th>
-                    </tr>
-                    <tr>
-                        <td>Pendapatan Usaha[cite: 1]</td>
-                        <td>Rp 364.000[cite: 1]</td>
-                    </tr>
-                    <tr>
-                        <td>Beban Usaha[cite: 1]</td>
-                        <td>(Rp 200.000)[cite: 1]</td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td>Laba Bersih[cite: 1]</td>
-                        <td>Rp 164.000[cite: 1]</td>
-                    </tr>
-                </table>
+            <div class="glass-card" style="grid-column: span 2;">
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Keunggulan Kompetitif</th>
+                            <th>Deskripsi Singkat</th>
+                        </tr>
+                        <tr>
+                            <td>Kalor Tinggi<span class="hidden-cite">[cite: 1]</span></td>
+                            <td>Melampaui arang kayu biasa (5.000-6.000 kkal), sangat efisien untuk BBQ.<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                        <tr>
+                            <td>Rendah Asap & Bau<span class="hidden-cite">[cite: 1]</span></td>
+                            <td>Ideal untuk restoran indoor maupun acara outdoor tanpa mengganggu pernapasan.<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bentuk Kustom<span class="hidden-cite">[cite: 1]</span></td>
+                            <td>Tersedia dalam bentuk Hexagonal, Kotak, atau Silinder sesuai permintaan pasar.<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Keuangan -->
+    <section id="keuangan" class="reveal">
+        <div class="section-header">
+            <h2>Analisis <span>Finansial</span></h2>
+            <p>Laporan Realisasi Penjualan & Laba Rugi Skala Kecil (Produksi 30 Kg).<span class="hidden-cite">[cite: 1]</span></p>
+        </div>
+        <div class="grid-container">
+            <div class="glass-card">
+                <i class="fa-solid fa-wallet"></i>
+                <h3>Struktur Biaya Produksi</h3>
+                <div class="table-container" style="margin-top: 15px;">
+                    <table>
+                        <tr>
+                            <td>Tempurung Kelapa (60 Kg)<span class="hidden-cite">[cite: 1]</span></td>
+                            <td>Rp 60.000<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tepung Terigu (5 Kg)<span class="hidden-cite">[cite: 1]</span></td>
+                            <td>Rp 75.000<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kemasan & Overhead<span class="hidden-cite">[cite: 1]</span></td>
+                            <td>Rp 65.000<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                        <tr>
+                            <td class="highlight">Total HPP per Kg<span class="hidden-cite">[cite: 1]</span></td>
+                            <td class="highlight">Rp 6.666<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="glass-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Laporan Laba Rugi</h3>
+                <div class="table-container" style="margin-top: 15px;">
+                    <table>
+                        <tr>
+                            <td>Pendapatan Usaha (28 Kg)<span class="hidden-cite">[cite: 1]</span></td>
+                            <td style="color: #25d366;">Rp 364.000<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                        <tr>
+                            <td>Beban Usaha (Produksi 30 Kg)<span class="hidden-cite">[cite: 1]</span></td>
+                            <td style="color: #ff4757;">(Rp 200.000)<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                        <tr>
+                            <td class="highlight">Laba Bersih<span class="hidden-cite">[cite: 1]</span></td>
+                            <td class="highlight" style="font-size: 1.5rem;">Rp 164.000<span class="hidden-cite">[cite: 1]</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tombol WA Melayang -->
+    <a href="https://wa.me/6281234567890" target="_blank" class="float-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- Footer -->
     <footer>
-        <h2 style="border: none; margin-bottom: 10px; font-size: 2rem;">Briket Berkat</h2>
-        <p>Program Studi Ekonomi Syariah - Universitas Islam Negeri Sunan Kudus - 2026[cite: 1]</p>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">&copy; 2026 Kelompok 2. All Rights Reserved.</p>
+        <div class="logo">Briket Berkat</div>
+        <p>Disusun untuk Memenuhi Tugas Kelompok Ulangan Akhir Semester<span class="hidden-cite">[cite: 1]</span></p>
+        <p>Program Studi Ekonomi Syariah - UIN Sunan Kudus - 2026<span class="hidden-cite">[cite: 1]</span></p>
+        <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2026 Kelompok 2 (Ismun Nafian dkk). All Rights Reserved.<span class="hidden-cite">[cite: 1]</span></p>
     </footer>
 
-    <!-- Simple Smooth Scroll JS -->
+    <!-- Script untuk Animasi Scroll -->
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
     </script>
 </body>
 </html>
